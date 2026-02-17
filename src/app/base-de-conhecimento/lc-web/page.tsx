@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Film } from 'lucide-react';
+import { ArrowLeft, Film, PlayCircle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Video, videos } from '@/lib/videos';
 
@@ -10,17 +11,35 @@ const lcWebVideos = videos.filter(v => v.category === 'lc-web');
 
 const VideoCard = ({ video }: { video: Video }) => {
   return (
-    <Link href={`/base-de-conhecimento/${video.category}/${video.slug}`} className="block h-full">
-      <Card className="h-full flex flex-col hover:shadow-lg hover:border-primary transition-all duration-300">
+    <Link href={`/base-de-conhecimento/${video.category}/${video.slug}`} className="block h-full group">
+      <Card className="h-full flex flex-col overflow-hidden group-hover:shadow-xl group-hover:border-primary/50 transition-all duration-300 transform group-hover:-translate-y-1">
+        <div className="relative aspect-video bg-muted">
+          {video.youtubeId ? (
+            <>
+              <Image
+                src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                alt={`Capa do vídeo: ${video.title}`}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <PlayCircle className="h-16 w-16 text-white/90" />
+              </div>
+            </>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <Film className="h-12 w-12 text-muted-foreground/40" />
+            </div>
+          )}
+        </div>
         <CardHeader className="flex-grow">
           <CardTitle className="text-lg font-semibold text-primary">{video.title}</CardTitle>
-          <CardDescription className="mt-1">{video.description}</CardDescription>
+          <CardDescription className="mt-2 text-sm text-foreground/70 line-clamp-2">{video.description}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className={`flex items-center text-sm ${video.youtubeId ? 'text-accent' : 'text-muted-foreground'}`}>
-            <Film className="mr-2 h-4 w-4" />
-            {video.youtubeId ? 'Assistir tutorial' : 'Em breve'}
-          </div>
+            <p className={`flex items-center text-sm font-semibold ${video.youtubeId ? 'text-accent' : 'text-muted-foreground'}`}>
+                {video.youtubeId ? 'Assistir ao tutorial' : 'Em breve'}
+            </p>
         </CardContent>
       </Card>
     </Link>
