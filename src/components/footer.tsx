@@ -85,7 +85,7 @@ export default function Footer() {
                     </a>
                 </li>
                 <li>
-                    <a href="mailto:gattetechnologia@outlook.com" className="flex items-center text-sm text-foreground/80 hover:text-accent transition-colors">
+                    <a href="mailto:contato@gattetecnologia.com.br" className="flex items-center text-sm text-foreground/80 hover:text-accent transition-colors">
                         <Mail className="h-4 w-4 mr-2" />
                         Email
                     </a>
