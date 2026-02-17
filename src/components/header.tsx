@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Logo } from '@/components/logo';
 
 const navLinks = [
   { href: '#sobre', label: 'Sobre' },
@@ -22,11 +21,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="#inicio" className="flex items-center" onClick={handleLinkClick}>
-          <Logo />
-        </Link>
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8 relative">
         <nav className="hidden md:flex md:items-center md:gap-6 text-sm font-medium">
+          <Link href="#inicio" className="text-foreground/60 transition-colors hover:text-foreground/80">Início</Link>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -37,12 +34,12 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 absolute right-8">
           <Button asChild>
             <Link href="#contato">Fale com um Especialista</Link>
           </Button>
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden w-full flex justify-end">
           <Button
             variant="ghost"
             size="icon"
@@ -56,6 +53,7 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 w-full bg-background shadow-lg">
           <nav className="flex flex-col items-center gap-4 p-4">
+            <Link href="#inicio" onClick={handleLinkClick} className="text-foreground/80 transition-colors hover:text-foreground w-full text-center py-2 rounded-md hover:bg-muted">Início</Link>
             {navLinks.map((link) => (
               <Link
                 key={link.href}

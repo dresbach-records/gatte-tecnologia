@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/logo';
 
 const HeroBackground = () => (
     <div
@@ -14,10 +15,11 @@ const HeroBackground = () => (
 
 export default function HeroSection() {
   return (
-    <section id="inicio" className="relative py-24 md:py-32 lg:py-40 bg-background">
+    <section id="inicio" className="relative pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-40 lg:pb-32 bg-background">
       <HeroBackground />
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 className="text-4xl font-extrabold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
+        <Logo width={260} height={72} />
+        <h1 className="mt-8 text-4xl font-extrabold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
           Soluções em gestão, TI e certificação digital
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-lg text-foreground/80 md:text-xl">
