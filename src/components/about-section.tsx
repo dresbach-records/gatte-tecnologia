@@ -7,12 +7,12 @@ export default function AboutSection() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
             <div className="relative mb-10 lg:mb-0">
                 <Image
-                    src="https://picsum.photos/seed/need/600/450"
-                    alt="Soluções personalizadas para o seu negócio"
+                    src="/publicidade/Cópia de PRECISA DE (1).png"
+                    alt="Equipe GATTE pronta para ajudar"
                     width={600}
                     height={450}
                     className="rounded-lg shadow-xl"
-                    data-ai-hint="business needs solution"
+                    data-ai-hint="team meeting"
                 />
             </div>
             <div className="lg:mt-0">

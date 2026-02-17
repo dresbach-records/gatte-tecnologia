@@ -35,7 +35,7 @@ export default function SpecialtiesSection() {
           </div>
           <div className="mt-10 lg:mt-0">
             <Image
-                src="https://picsum.photos/seed/dashboard/600/450"
+                src="/publicidade/Cópia de dash - tenha indicadores diarios.png"
                 alt="Dashboard de indicadores"
                 width={600}
                 height={450}
