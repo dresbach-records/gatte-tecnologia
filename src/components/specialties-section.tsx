@@ -1,4 +1,5 @@
 import { CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
 
 const specialties = [
   'Gestão Fiscal e Financeira',
@@ -11,7 +12,7 @@ export default function SpecialtiesSection() {
   return (
     <section id="especialidades" className="py-20 md:py-28 bg-secondary">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               Nossos Diferenciais Técnicos
@@ -19,9 +20,7 @@ export default function SpecialtiesSection() {
             <p className="mt-4 text-lg text-foreground/80">
               Vamos além do básico para oferecer soluções que realmente fazem a diferença no seu dia a dia, com foco em estratégia, segurança e crescimento.
             </p>
-          </div>
-          <div className="mt-10 lg:mt-0">
-            <ul className="space-y-4">
+            <ul className="mt-10 space-y-4">
               {specialties.map((specialty, index) => (
                 <li key={index} className="flex items-start">
                   <div className="flex-shrink-0">
@@ -33,6 +32,16 @@ export default function SpecialtiesSection() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="mt-10 lg:mt-0">
+            <Image
+                src="https://picsum.photos/seed/dashboard/600/450"
+                alt="Dashboard de indicadores"
+                width={600}
+                height={450}
+                className="rounded-lg shadow-xl"
+                data-ai-hint="dashboard analytics"
+            />
           </div>
         </div>
       </div>
