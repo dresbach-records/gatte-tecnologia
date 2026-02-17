@@ -21,6 +21,7 @@ const navLinks = [
   { href: '/#sobre', label: 'Sobre' },
   { href: '/#servicos', label: 'Serviços' },
   { href: '/#especialidades', label: 'Diferenciais' },
+  { href: '/base-de-conhecimento', label: 'Conhecimento' },
   { href: '/#depoimentos', label: 'Depoimentos' },
   { href: '/#promocoes', label: 'Ofertas' },
 ];
