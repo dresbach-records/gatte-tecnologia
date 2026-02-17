@@ -21,13 +21,12 @@ const navLinks = [
   { href: '/#sobre', label: 'Sobre' },
   { href: '/#servicos', label: 'Serviços' },
   { href: '/#especialidades', label: 'Diferenciais' },
-  { href: '/base-de-conhecimento', label: 'Conhecimento' },
   { href: '/#depoimentos', label: 'Depoimentos' },
   { href: '/#promocoes', label: 'Ofertas' },
 ];
 
 const solutions = [
-    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP (Desconto)' },
+    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP' },
     { href: '/solucoes/certificado-digital-com-condicao-especial', label: 'Certificado Digital' },
     { href: '/solucoes/pacote-completo-erp-treinamento', label: 'ERP + Treinamento' },
     { href: '/solucoes/integracao-pix-tef-com-desconto', label: 'Integração PIX & TEF' },

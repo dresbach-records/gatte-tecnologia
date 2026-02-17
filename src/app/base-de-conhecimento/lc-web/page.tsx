@@ -5,16 +5,16 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 
 const videos = [
   {
-    title: 'Primeiros Passos com o LC Web',
-    description: 'Aprenda a configurar sua conta e dar os primeiros passos no sistema.',
+    title: 'Aula 40 - APP LC Dashboard Mobile',
+    description: 'Acompanhe os indicadores da sua empresa na palma da mão.',
   },
   {
-    title: 'Cadastro de Clientes e Produtos',
-    description: 'Veja como é fácil cadastrar e gerenciar seus clientes e produtos.',
+    title: 'Aula 28 - APP Força de Vendas (Completo)',
+    description: 'Tutorial completo sobre como usar o aplicativo de força de vendas.',
   },
   {
-    title: 'Emitindo sua Primeira Nota Fiscal',
-    description: 'Um guia completo para a emissão de notas fiscais de forma rápida e segura.',
+    title: 'Aplicativos mobile - apresentação',
+    description: 'Conheça nossa suíte de aplicativos para gestão móvel.',
   },
 ];
 

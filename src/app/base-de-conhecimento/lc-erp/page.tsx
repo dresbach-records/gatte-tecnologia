@@ -5,16 +5,16 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 
 const videos = [
   {
-    title: 'Configuração Fiscal Avançada',
-    description: 'Aprenda a parametrizar as regras fiscais para sua operação.',
+    title: 'Aula 10 - Cadastro de produtos',
+    description: 'Um guia detalhado sobre como cadastrar seus produtos no sistema.',
   },
   {
-    title: 'Gestão de Estoque e Compras',
-    description: 'Domine as ferramentas de controle de inventário e processo de compras.',
+    title: 'Aula 18 - Entrada de estoque (completo)',
+    description: 'Domine o processo de entrada de mercadorias no seu estoque.',
   },
   {
-    title: 'Relatórios Gerenciais Personalizados',
-    description: 'Extraia dados estratégicos com relatórios customizados para sua gestão.',
+    title: 'Aula 37 - Controle de Caixa',
+    description: 'Aprenda a fazer a gestão completa do seu fluxo de caixa.',
   },
 ];
 

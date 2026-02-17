@@ -5,16 +5,16 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 
 const videos = [
   {
-    title: 'Configurando seu Ponto de Venda (PDV)',
-    description: 'Guia de instalação e configuração inicial do sistema de PDV.',
+    title: 'Aula 14 - PDV NFC-e vendas completo',
+    description: 'Um tutorial completo sobre vendas no Ponto de Venda com NFC-e.',
   },
   {
-    title: 'Integração com Balanças e Leitores',
-    description: 'Conecte seus periféricos ao sistema de automação comercial.',
+    title: 'Aula 17 - Gourmet (completo)',
+    description: 'Veja como gerenciar mesas, pedidos e o dia a dia de restaurantes.',
   },
   {
-    title: 'Fechamento de Caixa Simplificado',
-    description: 'Aprenda o processo correto para realizar o fechamento de caixa diário.',
+    title: 'Aula 13 - Atendimento de balcão',
+    description: 'Otimize suas vendas rápidas com o módulo de atendimento de balcão.',
   },
 ];
 
