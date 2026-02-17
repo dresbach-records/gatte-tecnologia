@@ -20,10 +20,13 @@ O projeto foi desenvolvido com [Next.js](https://nextjs.org/) e [Tailwind CSS](h
   - `page.tsx`: A página inicial (landing page).
   - `layout.tsx`: O layout principal que envolve todas as páginas.
   - `globals.css`: Estilos globais e configuração do tema do Tailwind CSS.
+  - `solucoes/`: Contém as páginas dedicadas para cada solução e promoção.
+    - `[nome-da-solucao]/page.tsx`: Página detalhada de uma solução específica.
+    - `layout.tsx`: Layout compartilhado pelas páginas de soluções.
 - `src/components/`: Componentes React reutilizáveis.
   - `ui/`: Componentes de UI da biblioteca ShadCN.
   - `*.tsx`: Componentes que representam o header, footer e as seções da landing page (Hero, Sobre, Serviços, etc.).
-- `public/`: Arquivos estáticos, como imagens e a logo.
+- `public/`: Arquivos estáticos, como imagens e a logo (`GATTE.png`).
 
 ## Como Rodar o Projeto Localmente
 
