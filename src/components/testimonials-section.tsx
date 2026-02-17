@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="flex flex-col">
+            <Card key={index} className="flex flex-col border">
               <CardHeader className="flex flex-row items-center gap-4 pb-4">
                 <Avatar>
                   <AvatarFallback>{testimonial.avatar}</AvatarFallback>

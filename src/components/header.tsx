@@ -26,15 +26,15 @@ const navLinks = [
 ];
 
 const solutions = [
-    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP com Desconto' },
-    { href: '/solucoes/certificado-digital-com-condicao-especial', label: 'Certificado Digital Especial' },
-    { href: '/solucoes/pacote-completo-erp-treinamento', label: 'Pacote ERP + Treinamento' },
-    { href: '/solucoes/integracao-pix-tef-com-desconto', label: 'Integração PIX e TEF' },
-    { href: '/solucoes/diagnostico-gratuito-de-sistema', label: 'Diagnóstico Gratuito de Sistema' },
-    { href: '/solucoes/suporte-tecnico-prioritario', label: 'Suporte Técnico Prioritário' },
+    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP (Desconto)' },
+    { href: '/solucoes/certificado-digital-com-condicao-especial', label: 'Certificado Digital' },
+    { href: '/solucoes/pacote-completo-erp-treinamento', label: 'ERP + Treinamento' },
+    { href: '/solucoes/integracao-pix-tef-com-desconto', label: 'Integração PIX & TEF' },
+    { href: '/solucoes/diagnostico-gratuito-de-sistema', label: 'Diagnóstico Gratuito' },
+    { href: '/solucoes/suporte-tecnico-prioritario', label: 'Suporte Prioritário' },
     { href: '/solucoes/implantacao-rapida-empresarial', label: 'Implantação Rápida' },
     { href: '/solucoes/automacao-comercial-completa', label: 'Automação Comercial' },
-    { href: '/solucoes/pacote-pme-tecnologia', label: 'Pacote PME Tecnologia' },
+    { href: '/solucoes/pacote-pme-tecnologia', label: 'Pacote PME' },
     { href: '/solucoes/atualizacao-de-sistema-com-beneficio', label: 'Atualização de Sistema' },
 ];
 

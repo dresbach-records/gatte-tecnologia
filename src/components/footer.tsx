@@ -13,10 +13,10 @@ const navLinks = [
 ];
 
 const solutions = [
-    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP' },
+    { href: '/solucoes/implantacao-erp-com-desconto-especial', label: 'Implantação ERP (Desconto)' },
     { href: '/solucoes/certificado-digital-com-condicao-especial', label: 'Certificado Digital' },
     { href: '/solucoes/pacote-completo-erp-treinamento', label: 'ERP + Treinamento' },
-    { href: '/solucoes/integracao-pix-tef-com-desconto', label: 'Integração PIX e TEF' },
+    { href: '/solucoes/integracao-pix-tef-com-desconto', label: 'Integração PIX & TEF' },
     { href: '/solucoes/diagnostico-gratuito-de-sistema', label: 'Diagnóstico Gratuito' },
     { href: '/solucoes/suporte-tecnico-prioritario', label: 'Suporte Prioritário' },
     { href: '/solucoes/implantacao-rapida-empresarial', label: 'Implantação Rápida' },

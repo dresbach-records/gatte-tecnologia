@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const promotions = [
   { title: 'Implantação ERP com Desconto Especial', code: 'GATTEERP10', href: '/solucoes/implantacao-erp-com-desconto-especial' },
@@ -17,26 +17,26 @@ const promotions = [
 
 export default function PromotionsSection() {
   return (
-    <section id="promocoes" className="py-20 md:py-28 bg-primary text-primary-foreground">
+    <section id="promocoes" className="py-20 md:py-28 bg-secondary">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Promoções e Ofertas Especiais
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-primary-foreground/80">
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
             Aproveite nossas soluções com condições exclusivas por tempo limitado.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {promotions.map((promo) => (
                 <Link key={promo.code} href={promo.href} className="flex">
-                    <Card className="w-full text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors flex flex-col">
+                    <Card className="w-full bg-card text-card-foreground border hover:shadow-lg transition-all duration-300 flex flex-col">
                         <CardHeader className="flex-grow">
                             <CardTitle className="text-base font-semibold">{promo.title}</CardTitle>
                         </CardHeader>
-                        <div className="p-4 pt-0 text-center">
+                        <CardContent className="pt-0 text-center">
                             <Badge variant="secondary" className="bg-accent text-accent-foreground">{promo.code}</Badge>
-                        </div>
+                        </CardContent>
                     </Card>
                 </Link>
             ))}

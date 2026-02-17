@@ -59,7 +59,7 @@ export default function ServicesSection() {
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+            <Card key={index} className="text-center border-transparent border hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
               <CardHeader className="flex flex-col items-center justify-center h-full">
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                   {service.icon}
