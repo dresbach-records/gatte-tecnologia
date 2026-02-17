@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
 export default function ImplantacaoErpPage() {
+  const whatsappMessage = encodeURIComponent('Olá! Tenho interesse na oferta "Implantação ERP com Desconto Especial" (código: GATTEERP10). Podemos conversar?');
+  const whatsappLink = `https://wa.me/5551933806899?text=${whatsappMessage}`;
+
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <Button variant="ghost" asChild className="mb-8">
@@ -27,7 +30,7 @@ export default function ImplantacaoErpPage() {
         </p>
         <div className="pt-4">
           <Button size="lg" asChild>
-            <Link href="/#contato">Quero esse Desconto</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Solicitar Desconto GATTEERP10</a>
           </Button>
         </div>
       </div>

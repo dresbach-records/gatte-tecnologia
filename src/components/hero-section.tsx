@@ -18,14 +18,17 @@ export default function HeroSection() {
       <HeroBackground />
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center">
         <h1 className="text-4xl font-extrabold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-          Soluções em gestão, TI e certificação digital
+          Transforme sua gestão, impulsione seus resultados
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-lg text-foreground/80 md:text-xl">
-          Potencializamos o seu negócio com tecnologia de ponta, da gestão empresarial à segurança digital, garantindo eficiência e tranquilidade para sua empresa crescer.
+          Elimine falhas, otimize processos e ganhe tranquilidade para focar no que realmente importa: o crescimento do seu negócio. Descubra como nossa consultoria e tecnologia integrada podem destravar o potencial da sua empresa.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="#contato">Fale com um Especialista</Link>
+            <Link href="/solucoes/diagnostico-gratuito-de-sistema">Agendar Diagnóstico Gratuito</Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/#servicos">Conheça Nossas Soluções</Link>
           </Button>
         </div>
       </div>

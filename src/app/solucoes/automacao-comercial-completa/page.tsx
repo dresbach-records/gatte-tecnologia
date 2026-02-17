@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
 export default function AutomacaoComercialPage() {
+  const whatsappMessage = encodeURIComponent('Olá! Tenho interesse na oferta "Automação Comercial Completa" (código: AUTOGATTE). Podemos conversar?');
+  const whatsappLink = `https://wa.me/5551933806899?text=${whatsappMessage}`;
+
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <Button variant="ghost" asChild className="mb-8">
@@ -27,7 +30,7 @@ export default function AutomacaoComercialPage() {
         </p>
         <div className="pt-4">
           <Button size="lg" asChild>
-            <Link href="/#contato">Automatizar meu Negócio</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Automatizar com AUTOGATTE</a>
           </Button>
         </div>
       </div>

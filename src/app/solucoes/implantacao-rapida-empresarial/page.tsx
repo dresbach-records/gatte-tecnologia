@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
 export default function ImplantacaoRapidaPage() {
+  const whatsappMessage = encodeURIComponent('Olá! Tenho interesse na oferta "Implantação Rápida Empresarial" (código: STARTNOW). Podemos conversar?');
+  const whatsappLink = `https://wa.me/5551933806899?text=${whatsappMessage}`;
+
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <Button variant="ghost" asChild className="mb-8">
@@ -27,7 +30,7 @@ export default function ImplantacaoRapidaPage() {
         </p>
         <div className="pt-4">
           <Button size="lg" asChild>
-            <Link href="/#contato">Iniciar Imediatamente</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Iniciar Agora com STARTNOW</a>
           </Button>
         </div>
       </div>

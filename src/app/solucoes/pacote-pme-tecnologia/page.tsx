@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 
 export default function PacotePmePage() {
+  const whatsappMessage = encodeURIComponent('Olá! Tenho interesse na oferta "Pacote PME Tecnologia" (código: PMEGATTE). Podemos conversar?');
+  const whatsappLink = `https://wa.me/5551933806899?text=${whatsappMessage}`;
+
   return (
     <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <Button variant="ghost" asChild className="mb-8">
@@ -27,7 +30,7 @@ export default function PacotePmePage() {
         </p>
         <div className="pt-4">
           <Button size="lg" asChild>
-            <Link href="/#contato">Conhecer Pacote PME</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">Conhecer Pacote PMEGATTE</a>
           </Button>
         </div>
       </div>

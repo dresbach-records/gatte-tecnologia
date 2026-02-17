@@ -23,6 +23,9 @@ export default function ContactSection() {
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
           Estamos prontos para ouvir sobre seu projeto. Fale conosco e descubra como podemos ajudar.
         </p>
+        <p className="mt-2 max-w-2xl mx-auto text-md text-foreground/70 font-semibold">
+          Atendimento dedicado para empresas em todo o Rio Grande do Sul.
+        </p>
 
         <div className="mt-12 flex flex-col items-center gap-6">
             <div className="space-y-4 text-left">
