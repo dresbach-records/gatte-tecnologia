@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, LogOut, LayoutDashboard, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Logo } from './logo';
 import {
@@ -10,12 +10,17 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useUser, useAuth } from '@/firebase';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useRouter } from 'next/navigation';
+
 
 const navLinks = [
   { href: '/#sobre', label: 'Sobre' },
@@ -37,6 +42,55 @@ const solutions = [
     { href: '/solucoes/pacote-pme-tecnologia', label: 'Pacote PME' },
     { href: '/solucoes/atualizacao-de-sistema-com-beneficio', label: 'Atualização de Sistema' },
 ];
+
+function UserNav() {
+    const { user, loading } = useUser();
+    const auth = useAuth();
+    const router = useRouter();
+
+    const handleSignOut = async () => {
+        await auth.signOut();
+        router.push('/');
+    };
+
+    if (loading) {
+        return <Loader2 className="h-6 w-6 animate-spin" />;
+    }
+
+    if (!user) {
+        return (
+            <Button asChild>
+                <Link href="/login">Área do Cliente</Link>
+            </Button>
+        );
+    }
+
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Avatar className="h-9 w-9">
+                        <AvatarImage src={user.photoURL || ''} alt={user.displayName || user.email || ''} />
+                        <AvatarFallback>{user.email?.[0].toUpperCase()}</AvatarFallback>
+                    </Avatar>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuItem asChild>
+                    <Link href="/dashboard">
+                        <LayoutDashboard className="mr-2 h-4 w-4" />
+                        <span>Dashboard</span>
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleSignOut}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sair</span>
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,9 +133,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-          <Button asChild className="hidden md:flex">
-            <Link href="/#contato">Fale com um Especialista</Link>
-          </Button>
+          <div className="hidden md:flex">
+             <UserNav />
+          </div>
           <div className="md:hidden">
             <Button
               variant="ghost"
@@ -130,9 +184,9 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="w-full mt-2">
-                <Link href="/#contato" onClick={handleLinkClick}>Fale com um Especialista</Link>
-              </Button>
+              <div className="w-full mt-2">
+                 <UserNav />
+              </div>
             </nav>
         </div>
       )}
