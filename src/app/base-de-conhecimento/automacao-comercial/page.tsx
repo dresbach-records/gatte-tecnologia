@@ -5,16 +5,18 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 
 const videos: {title: string, description: string, href?: string}[] = [
   {
-    title: 'Aula 14 - PDV NFC-e vendas completo',
+    title: 'PDV NFC-e vendas completo',
     description: 'Um tutorial completo sobre vendas no Ponto de Venda com NFC-e.',
+    href: 'https://youtu.be/bo1W3Mt3H9w?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
   },
   {
-    title: 'Aula 17 - Gourmet (completo)',
-    description: 'Veja como gerenciar mesas, pedidos e o dia a dia de restaurantes.',
-  },
-  {
-    title: 'Aula 13 - Atendimento de balcão',
+    title: 'Atendimento de balcão',
     description: 'Otimize suas vendas rápidas com o módulo de atendimento de balcão.',
+    href: 'https://youtu.be/vwrSCpgcPag?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
+  },
+  {
+    title: 'Gourmet (completo)',
+    description: 'Veja como gerenciar mesas, pedidos e o dia a dia de restaurantes.',
   },
 ];
 

@@ -5,12 +5,13 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 
 const videos: {title: string, description: string, href?: string}[] = [
   {
-    title: 'Aula 40 - APP LC Dashboard Mobile',
-    description: 'Acompanhe os indicadores da sua empresa na palma da mão.',
+    title: 'APP Força de Vendas (Completo)',
+    description: 'Tutorial completo sobre como usar o aplicativo de força de vendas.',
+    href: 'https://youtu.be/m9ecbLB4Z5Y?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
   },
   {
-    title: 'Aula 28 - APP Força de Vendas (Completo)',
-    description: 'Tutorial completo sobre como usar o aplicativo de força de vendas.',
+    title: 'APP LC Dashboard Mobile',
+    description: 'Acompanhe os indicadores da sua empresa na palma da mão.',
   },
   {
     title: 'Aplicativos mobile - apresentação',
