@@ -6,7 +6,6 @@ import SpecialtiesSection from '@/components/specialties-section';
 import PromotionsSection from '@/components/promotions-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
-import WhatsAppButton from '@/components/whatsapp-button';
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

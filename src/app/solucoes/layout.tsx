@@ -1,6 +1,5 @@
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import WhatsAppButton from '@/components/whatsapp-button';
 
 export default function SolucoesLayout({
   children,
@@ -14,7 +13,6 @@ export default function SolucoesLayout({
         {children}
       </main>
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
