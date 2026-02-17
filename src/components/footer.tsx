@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Logo } from './logo';
 import { Linkedin, Facebook, Instagram, Mail } from 'lucide-react';
 
@@ -110,6 +111,14 @@ export default function Footer() {
           <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEZJAzcrT9bBA/profile-treasury-document-cover-images_480/B4DZxoP7G9JkBI-/0/1771275535192?e=1771941600&v=beta&t=ougQAczlgjifQ6d0kIkQyJKeVHI6y9jMLfGKVJgNJBA" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
             Certificação
           </a>
+        </div>
+        <div className="mt-8 flex justify-center">
+            <Image
+                src="/publicidade/MARCA.png"
+                alt="Marca GATTE Tecnologia"
+                width={150}
+                height={40}
+            />
         </div>
       </div>
     </footer>
