@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Youtube } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 
-const videos = [
+const videos: {title: string, description: string, href?: string}[] = [
   {
     title: 'Aula 10 - Cadastro de produtos',
     description: 'Um guia detalhado sobre como cadastrar seus produtos no sistema.',
@@ -15,6 +15,11 @@ const videos = [
   {
     title: 'Aula 37 - Controle de Caixa',
     description: 'Aprenda a fazer a gestão completa do seu fluxo de caixa.',
+  },
+  {
+    title: 'Aula 06 - Cadastro de caixa',
+    description: 'Aprenda como realizar o cadastro de caixas em seu sistema.',
+    href: 'https://youtu.be/Q-zfv7w3Id8?list=PLBc9EKD_Uy-rBMITzyPHmp7egoTQIjTi1',
   },
 ];
 
@@ -36,19 +41,41 @@ export default function LcErpPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-          {videos.map((video) => (
-            <Card key={video.title}>
-              <CardContent className="p-0">
-                <div className="aspect-video bg-muted flex items-center justify-center rounded-t-lg">
-                  <Youtube className="h-16 w-16 text-muted-foreground/50" />
-                </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle>{video.title}</CardTitle>
-                <CardDescription>{video.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+          {videos.map((video) => {
+            const card = (
+              <Card className={`h-full ${video.href ? 'hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1' : ''}`}>
+                <CardContent className="p-0">
+                  <div className="aspect-video bg-muted flex items-center justify-center rounded-t-lg">
+                    <Youtube className="h-16 w-16 text-muted-foreground/50" />
+                  </div>
+                </CardContent>
+                <CardHeader>
+                  <CardTitle>{video.title}</CardTitle>
+                  <CardDescription>{video.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            );
+
+            if (video.href) {
+              return (
+                <a
+                  key={video.title}
+                  href={video.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
+                  {card}
+                </a>
+              );
+            }
+
+            return (
+              <div key={video.title} className="h-full">
+                {card}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
