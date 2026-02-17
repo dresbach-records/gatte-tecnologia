@@ -13,6 +13,11 @@ export default function Footer() {
                     Tecnologia da Informação
                 </p>
             </div>
+
+            <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEZJAzcrT9bBA/profile-treasury-document-cover-images_480/B4DZxoP7G9JkBI-/0/1771275535192?e=1771941600&v=beta&t=ougQAczlgjifQ6d0kIkQyJKeVHI6y9jMLfGKVJgNJBA" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+              Certificação
+            </a>
+
             <p className="text-sm text-foreground/60 text-center md:text-right">
                 &copy; {currentYear} GATTE Tecnologia. Todos os direitos reservados.
             </p>
