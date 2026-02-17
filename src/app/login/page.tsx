@@ -78,7 +78,7 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
-      router.push('/dashboard');
+      router.push('/area-do-cliente');
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -94,7 +94,7 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
-      router.push('/dashboard');
+      router.push('/area-do-cliente');
     } catch (error: any) {
         toast({
             variant: "destructive",
@@ -111,7 +111,7 @@ export default function LoginPage() {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push('/dashboard');
+      router.push('/area-do-cliente');
     } catch (error: any) {
         toast({
             variant: "destructive",

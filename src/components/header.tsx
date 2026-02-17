@@ -77,9 +77,9 @@ function UserNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuItem asChild>
-                    <Link href="/dashboard">
+                    <Link href="/area-do-cliente">
                         <LayoutDashboard className="mr-2 h-4 w-4" />
-                        <span>Dashboard</span>
+                        <span>Área do Cliente</span>
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
