@@ -1,150 +1,50 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Youtube } from 'lucide-react';
+import { ArrowLeft, Film } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+import { videos, Video, Modulo } from '@/lib/videos';
 
-const modulos = [
+const modulos: Modulo[] = [
   {
+    key: 'cadastros',
     name: 'Módulo de Cadastros',
-    videos: [
-      {
-        title: 'Cadastro de produtos',
-        description: 'Aprenda a cadastrar seus produtos no sistema.',
-        href: 'https://youtu.be/a8JJedfr4jM?list=PLBc9EKD_Uy-rBMITzyPHmp7egoTQIjTi1',
-      },
-      {
-        title: 'Cadastro de clientes',
-        description: 'Guia completo para registrar e gerenciar clientes.',
-        href: 'https://youtu.be/lPmx6Pn8tVI?list=PLBc9EKD_Uy-rBMITzyPHmp7egoTQIjTi1',
-      },
-      {
-        title: 'Cadastro de usuários',
-        description: 'Gerencie os acessos e permissões da sua equipe.',
-        href: 'https://youtu.be/ZsZZLZ6BajM?list=PLBc9EKD_Uy-rBMITzyPHmp7egoTQIjTi1',
-      },
-      {
-        title: 'Cadastro de caixa',
-        description: 'Aprenda como realizar o cadastro de caixas em seu sistema.',
-        href: 'https://youtu.be/Q-zfv7w3Id8?list=PLBc9EKD_Uy-rBMITzyPHmp7egoTQIjTi1',
-      },
-    ],
+    videos: videos.filter(v => v.category === 'lc-erp' && v.subModule === 'cadastros'),
   },
   {
+    key: 'estoque',
     name: 'Módulo de Estoque',
-    videos: [
-      {
-        title: 'Ajuste de estoque',
-        description: 'Como fazer ajustes manuais no seu inventário.',
-        href: 'https://youtu.be/pnRoqOUnZPg?list=PLBc9EKD_Uy-pIganp8J2DVlj8eAljoDHg',
-      },
-      {
-        title: 'Lote e vencimento',
-        description: 'Controle produtos por lote e data de vencimento.',
-        href: 'https://youtu.be/7HzZg0dnoeI?list=PLBc9EKD_Uy-pIganp8J2DVlj8eAljoDHg',
-      },
-      {
-        title: 'Entrada de estoque (NF-e)',
-        description: 'Domine o processo de entrada de mercadorias via XML.',
-        href: 'https://youtu.be/Gf7-Lcp8bdI?list=PLBc9EKD_Uy-pIganp8J2DVlj8eAljoDHg',
-      },
-      {
-        title: 'Coletor de dados',
-        description: 'Agilize seu balanço e controle de estoque com o coletor.',
-        href: 'https://youtu.be/M-BwM7tV1Hw?list=PLBc9EKD_Uy-pIganp8J2DVlj8eAljoDHg',
-      },
-    ],
+    videos: videos.filter(v => v.category === 'lc-erp' && v.subModule === 'estoque'),
   },
   {
+    key: 'vendas-e-servicos',
     name: 'Módulo de Vendas e Serviços',
-    videos: [
-       {
-        title: 'Ordem de Serviço',
-        description: 'Gerencie e acompanhe ordens de serviço de forma eficiente.',
-        href: 'https://youtu.be/y0CY2iadFEM?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
-      },
-      {
-        title: 'Módulo Retaguarda',
-        description: 'Visão geral das funcionalidades do sistema de retaguarda.',
-        href: 'https://youtu.be/Mourf3MWLYQ?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
-      },
-      {
-        title: 'Tabela de Preços',
-        description: 'Crie e gerencie diferentes tabelas de preços.',
-        href: 'https://youtu.be/8oOeWQTe4_0?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
-      },
-    ]
+    videos: videos.filter(v => v.category === 'lc-erp' && v.subModule === 'vendas-e-servicos'),
   },
   {
+    key: 'financeiro-e-fiscal',
     name: 'Módulo Financeiro e Fiscal',
-    videos: [
-      {
-        title: 'Contas a Receber',
-        description: 'Faça a gestão completa das contas a receber de seus clientes.',
-        href: 'https://youtu.be/KvBcYi_oYTI?list=PLBc9EKD_Uy-rbuYp9U5P1mTIhSOsBxIVv',
-      },
-      {
-        title: 'Controle de Caixa',
-        description: 'Aprenda a fazer a gestão completa do seu fluxo de caixa.',
-        href: 'https://www.youtube.com/watch?v=3h3z4y5zX-w',
-      },
-      {
-        title: 'XML para Contabilidade',
-        description: 'Exporte os arquivos XML para o seu contador de forma simples.',
-        href: 'https://youtu.be/61ZajDOEREU?list=PLBc9EKD_Uy-reKIvvbT53VIp12AOXABUO',
-      },
-    ],
+    videos: videos.filter(v => v.category === 'lc-erp' && v.subModule === 'financeiro-e-fiscal'),
   },
 ];
 
-function getYouTubeId(url: string): string | null {
-  if (!url) return null;
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  return (match && match[2] && match[2].length === 11) ? match[2] : null;
-}
-
-const VideoCard = ({ video }: { video: { title: string, description: string, href?: string } }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoId = video.href ? getYouTubeId(video.href) : null;
-
-  const handlePlayClick = () => {
-    if (videoId) {
-      setIsPlaying(true);
-    }
-  };
-
+const VideoCard = ({ video }: { video: Video }) => {
   return (
-    <Card className="h-full flex flex-col">
-      <CardContent className="p-0">
-        {isPlaying && videoId ? (
-          <div className="aspect-video">
-            <iframe
-              className="w-full h-full rounded-t-lg"
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-              title={video.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+    <Link href={`/base-de-conhecimento/${video.category}/${video.slug}`} className="block h-full">
+      <Card className="h-full flex flex-col hover:shadow-lg hover:border-primary transition-all duration-300">
+        <CardHeader className="flex-grow">
+          <CardTitle className="text-lg font-semibold text-primary">{video.title}</CardTitle>
+          <CardDescription className="mt-1">{video.description}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className={`flex items-center text-sm ${video.youtubeId ? 'text-accent' : 'text-muted-foreground'}`}>
+            <Film className="mr-2 h-4 w-4" />
+            {video.youtubeId ? 'Assistir tutorial' : 'Em breve'}
           </div>
-        ) : (
-          <div
-            onClick={videoId ? handlePlayClick : undefined}
-            className={`aspect-video bg-muted flex items-center justify-center rounded-t-lg relative group ${videoId ? 'cursor-pointer' : ''}`}
-          >
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <Youtube className={`h-16 w-16 text-muted-foreground/50 ${videoId ? 'transition-all group-hover:text-primary z-10 group-hover:scale-110' : ''}`} />
-          </div>
-        )}
-      </CardContent>
-      <CardHeader className="flex-grow">
-        <CardTitle>{video.title}</CardTitle>
-        <CardDescription>{video.description}</CardDescription>
-      </CardHeader>
-    </Card>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
