@@ -1,8 +1,8 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import Script from 'next/script';
 import { FirebaseProvider } from '@/firebase';
+import ChatWidget from '@/components/chat-widget';
 
 export const metadata: Metadata = {
   title: 'GATTE Tecnologia | Soluções em Gestão, TI e Certificação Digital',
@@ -28,7 +28,7 @@ export default function RootLayout({
             {children}
         </FirebaseProvider>
         <Toaster />
-        <Script src='https://cdn.jotfor.ms/agent/embedjs/019c6bf631da793b963edab2f75ddebb28cb/embed.js' />
+        <ChatWidget />
       </body>
     </html>
   );
