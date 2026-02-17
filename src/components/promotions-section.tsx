@@ -1,13 +1,18 @@
 import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 
 const promotions = [
-  { title: 'Automação Comercial', code: 'AUTOGEST' },
-  { title: 'Criação de Sites', code: 'SITEGATTE' },
-  { title: 'Certificação Digital', code: 'CERTGATTE' },
-  { title: 'Implantação ERP', code: 'ERPSTART' },
-  { title: 'Suporte Técnico', code: 'SUPVIP' },
-  { title: 'Integração de Pagamentos', code: 'PAGTECH' },
-  { title: 'Desenvolvimento Sob Medida', code: 'DEVPRO' },
+  { title: 'Implantação ERP com Desconto Especial', code: 'GATTEERP10', href: '/solucoes/implantacao-erp-com-desconto-especial' },
+  { title: 'Certificado Digital com Condição Especial', code: 'CERTGATTE', href: '/solucoes/certificado-digital-com-condicao-especial' },
+  { title: 'Pacote Completo ERP + Treinamento', code: 'ERPSTART', href: '/solucoes/pacote-completo-erp-treinamento' },
+  { title: 'Integração PIX e TEF com Desconto', code: 'PAGTECH5', href: '/solucoes/integracao-pix-tef-com-desconto' },
+  { title: 'Diagnóstico Gratuito de Sistema', code: 'CHECKUPTI', href: '/solucoes/diagnostico-gratuito-de-sistema' },
+  { title: 'Suporte Técnico Prioritário', code: 'SUPVIP', href: '/solucoes/suporte-tecnico-prioritario' },
+  { title: 'Implantação Rápida Empresarial', code: 'STARTNOW', href: '/solucoes/implantacao-rapida-empresarial' },
+  { title: 'Automação Comercial Completa', code: 'AUTOGATTE', href: '/solucoes/automacao-comercial-completa' },
+  { title: 'Pacote PME Tecnologia', code: 'PMEGATTE', href: '/solucoes/pacote-pme-tecnologia' },
+  { title: 'Atualização de Sistema com Benefício', code: 'UPGRADE10', href: '/solucoes/atualizacao-de-sistema-com-beneficio' },
 ];
 
 export default function PromotionsSection() {
@@ -22,12 +27,18 @@ export default function PromotionsSection() {
             Aproveite nossas soluções com condições exclusivas por tempo limitado.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {promotions.map((promo) => (
-                <div key={promo.code} className="p-4 bg-primary-foreground/10 rounded-lg flex flex-col justify-center items-center h-28">
-                    <h3 className="text-sm font-semibold flex-grow flex items-center">{promo.title}</h3>
-                    <Badge variant="secondary" className="mt-2 bg-accent text-accent-foreground">{promo.code}</Badge>
-                </div>
+                <Link key={promo.code} href={promo.href} className="flex">
+                    <Card className="w-full text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors flex flex-col">
+                        <CardHeader className="flex-grow">
+                            <CardTitle className="text-base font-semibold">{promo.title}</CardTitle>
+                        </CardHeader>
+                        <div className="p-4 pt-0 text-center">
+                            <Badge variant="secondary" className="bg-accent text-accent-foreground">{promo.code}</Badge>
+                        </div>
+                    </Card>
+                </Link>
             ))}
         </div>
       </div>
