@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Youtube } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
@@ -96,31 +99,55 @@ const modulos = [
   },
 ];
 
+function getYouTubeId(url: string): string | null {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2] && match[2].length === 11) ? match[2] : null;
+}
+
 const VideoCard = ({ video }: { video: { title: string, description: string, href?: string } }) => {
-  const card = (
-    <Card className={`h-full ${video.href ? 'hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1' : ''}`}>
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = video.href ? getYouTubeId(video.href) : null;
+
+  const handlePlayClick = () => {
+    if (videoId) {
+      setIsPlaying(true);
+    }
+  };
+
+  return (
+    <Card className="h-full flex flex-col">
       <CardContent className="p-0">
-        <div className="aspect-video bg-muted flex items-center justify-center rounded-t-lg">
-          <Youtube className="h-16 w-16 text-muted-foreground/50" />
-        </div>
+        {isPlaying && videoId ? (
+          <div className="aspect-video">
+            <iframe
+              className="w-full h-full rounded-t-lg"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title={video.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : (
+          <div
+            onClick={videoId ? handlePlayClick : undefined}
+            className={`aspect-video bg-muted flex items-center justify-center rounded-t-lg relative group ${videoId ? 'cursor-pointer' : ''}`}
+          >
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <Youtube className={`h-16 w-16 text-muted-foreground/50 ${videoId ? 'transition-all group-hover:text-primary z-10 group-hover:scale-110' : ''}`} />
+          </div>
+        )}
       </CardContent>
-      <CardHeader>
+      <CardHeader className="flex-grow">
         <CardTitle>{video.title}</CardTitle>
         <CardDescription>{video.description}</CardDescription>
       </CardHeader>
     </Card>
   );
-
-  if (video.href) {
-    return (
-      <a href={video.href} target="_blank" rel="noopener noreferrer" className="block h-full">
-        {card}
-      </a>
-    );
-  }
-
-  return <div className="h-full">{card}</div>;
 };
+
 
 export default function LcErpPage() {
   return (
